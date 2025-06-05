@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MVCDatabaseDemo.Models.Author>
+
+<div class="container">
+    <h1 class="text-center"> Author List</h1>
+    <hr />
+    <a class="btn btn-success" href="Authors/Create">Create New Author</a>
+    <table class="table table-responsive">
+        <tr>
+            <th>Author Name</th>
+            <th>Date Create</th>
+            <th>Actions</th>
+        </tr>
+        @{
+            foreach(var author in Model)
+            {
+                <tr>
+                    <td>@author.Name</td>
+                    <td>@author.DateCreated</td>
+                    <td>
+                        <a class="btn btn-primary" href="Authors/Details?id=@author.Id">View Details</a>
+                        <a class="btn btn-warning" href="Authors/Edit?id=@author.Id">Edit Author</a>
+                        <button class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+            }
+        }
+</table>
+
+</div>
+

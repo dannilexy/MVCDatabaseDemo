@@ -1,0 +1,30 @@
+﻿@model MVCDatabaseDemo.Models.Author;
+
+<div class="container-fluid">
+    <h1 class="text-center">Create New Author</h1>
+
+
+    @{
+        if (ViewBag.ErrorMessage != null)
+        {
+            <div class="alert alert-danger">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+    }
+
+    <div class="col-md-6 offset-3">
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="">Name:</label>
+                <input type="text" asp-for="Name" class="form-control" />
+            </div>
+            <br />
+            <a class=" btn btn-warning" href="Authors">Back to List</a>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+       
+        
+    </div>
+
+</div>
