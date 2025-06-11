@@ -9,7 +9,7 @@ namespace MVCDatabaseDemo.Controllers
     {
         public async Task<IActionResult> Index()
         {
-            var authors = await _context.Authors.ToListAsync();
+            var authors = await _context.Authors.Include(x => x.Books).ToListAsync();
             return View(authors);
         }
 
@@ -47,7 +47,7 @@ namespace MVCDatabaseDemo.Controllers
 
         public async Task<IActionResult> Details(int id)
         {
-            var authors = await _context.Authors.FirstOrDefaultAsync(x => x.Id == id);
+            var authors = await _context.Authors.Include(x => x.Books).FirstOrDefaultAsync(x => x.Id == id);
             return View(authors);
         }
     }
